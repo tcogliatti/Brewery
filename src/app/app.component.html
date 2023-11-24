@@ -26,18 +26,13 @@
 <!-- cuerpo -------------------------------- -->
 
 <div class="container">
-  <div class="row">
-    <div class="col-8">
-      <app-beer-list></app-beer-list>
-    </div>
-    <div class="col-4">
-      <app-carrito-compras></app-carrito-compras>
-    </div>
-  </div>
-
+  <app-brewery-beers></app-brewery-beers>
 </div>
 
 <!-- footer -------------------------------- -->
 
-<footer class="fw-bolder d-flex justify-content-center "> {{title}} 🍺 <span class="fw-lighter"> |
-    {{yearCopyright}}</span></footer>
+<footer class="fw-bolder d-flex justify-content-center color-bg_footer">
+  <div class="d-flex align-items-center">
+    {{title}} 🍺 <pre> </pre> <span class="fw-lighter"> | {{yearCopyright}} ©</span>
+  </div>
+</footer>

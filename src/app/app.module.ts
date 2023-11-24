@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BeerListComponent } from './beer-list/beer-list.component';
-import { CarritoComprasComponent } from './carrito-compras/carrito-compras.component';
+import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
+import { BreweryBeersComponent } from './brewery-beers/brewery-beers.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BeerListComponent,
-    CarritoComprasComponent
+    BreweryAboutComponent,
+    BreweryBeersComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

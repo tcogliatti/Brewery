@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'brewery';
-  yearCopyright = '2023';
+  yearCopyright : number;
+
+  constructor(){
+    this.yearCopyright = new Date().getFullYear();
+  }
 }

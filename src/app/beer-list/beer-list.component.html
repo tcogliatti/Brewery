@@ -6,21 +6,34 @@
             <th>Tipo</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 
         <tr *ngFor="let beer of beers" [ngClass]="{'table-success': beer.clearance}">
-            <td><img [src]="beer.image" [alt]="beer.name"></td>
+            <td><img [src]="beer.image" [alt]="beer.name" class="img-thumbnail"></td>
             <td>{{beer.name}}</td>
             <td>{{beer.type}}</td>
             <td>
-                <span *ngIf="beer.clearance">{{(beer.price * sale) | currency}} <span class="badge text-bg-primary fw-lighter">50% off</span> </span>
+                <span *ngIf="beer.clearance">{{(beer.price * sale) | currency}} <span
+                        class="badge text-bg-primary fw-lighter">{{sale * 100}}% off</span> </span>
                 <span *ngIf="!beer.clearance">{{beer.price | currency}}</span>
             </td>
             <td>
                 <span class="badge text-bg-warning" *ngIf="beer.stock==0">Sin Stock</span>
                 <span *ngIf="beer.stock!=0">{{beer.stock}}</span>
+            </td>
+            <td>
+                <div *ngIf="beer.stock!=0">
+                    <button class="btn btn-primary btn-sm" (click)="downQuantity(beer)">-</button>
+                    <input type="text" class="buy-input text-lg-center border-0"
+                        [(ngModel)]="beer.quantity"
+                        (keydown)="changeQuantity($event, beer)"
+                        cha
+                    >
+                    <button class="btn btn-primary btn-sm" (click)="upQuantity(beer)">+</button>
+                </div>
             </td>
         </tr>
 

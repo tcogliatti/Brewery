@@ -15,6 +15,7 @@ export class BeerListComponent {
       stock: 5,
       image: "assets/img/porter.jpg",
       clearance: true,
+      quantity: 0,
     },
     {
       name: "Red Red Wine",
@@ -23,6 +24,7 @@ export class BeerListComponent {
       stock: 4,
       image: "assets/img/porter.jpg",
       clearance: false,
+      quantity: 0,
     },
     {
       name: "Yellow Submarine",
@@ -31,12 +33,24 @@ export class BeerListComponent {
       stock: 0,
       image: "assets/img/porter.jpg",
       clearance: false,
+      quantity: 0,
     },
   ];
   sale: number;
 
   constructor() {
     this.sale = 0.50;
-   }
+  }
 
+  upQuantity(beer: Beer): void {
+    beer.stock > beer.quantity ? beer.quantity++ : null;
+  }
+  downQuantity(beer: Beer): void {
+    beer.quantity > 0 ? beer.quantity-- : null;
+  }
+  changeQuantity(event: any, beer: Beer) {
+    const digitPattern = /^[0-9]$/;
+    if (!digitPattern.test(event.key)) 
+      event.preventDefault();
+  }
 }
