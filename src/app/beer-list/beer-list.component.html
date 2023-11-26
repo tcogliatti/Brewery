@@ -25,15 +25,12 @@
                 <span *ngIf="beer.stock!=0">{{beer.stock}}</span>
             </td>
             <td>
-                <div *ngIf="beer.stock!=0">
-                    <button class="btn btn-primary btn-sm" (click)="downQuantity(beer)">-</button>
-                    <input type="text" class="buy-input text-lg-center border-0"
-                        [(ngModel)]="beer.quantity"
-                        (keydown)="changeQuantity($event, beer)"
-                        cha
-                    >
-                    <button class="btn btn-primary btn-sm" (click)="upQuantity(beer)">+</button>
-                </div>
+                <app-input-integer [(quantity)]="beer.quantity" [max]="beer.stock" *ngIf="beer.stock!=0"
+                    (maxReached)="maxReached($event)">
+                </app-input-integer>
+            </td>
+            <td>
+                <button class="btn btn-light mt-1 w-100" (click)="addToCart(beer)">🛒</button>
             </td>
         </tr>
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Beer } from './Beer';
+import { BeerCartService } from '../beer-cart.service';
 
 @Component({
   selector: 'app-beer-list',
@@ -7,6 +8,7 @@ import { Beer } from './Beer';
   styleUrl: './beer-list.component.scss'
 })
 export class BeerListComponent {
+
   beers: Beer[] = [ // <----------------------- mock data
     {
       name: "Bitter Call Saul",
@@ -36,21 +38,19 @@ export class BeerListComponent {
       quantity: 0,
     },
   ];
+
   sale: number;
 
-  constructor() {
+  constructor(private cart: BeerCartService) {
     this.sale = 0.50;
   }
 
-  upQuantity(beer: Beer): void {
-    beer.stock > beer.quantity ? beer.quantity++ : null;
+  maxReached(m: string) {
+    alert(m);
   }
-  downQuantity(beer: Beer): void {
-    beer.quantity > 0 ? beer.quantity-- : null;
-  }
-  changeQuantity(event: any, beer: Beer) {
-    const digitPattern = /^[0-9]$/;
-    if (!digitPattern.test(event.key)) 
-      event.preventDefault();
+  addToCart(beer: Beer): void {
+    this.cart.addToCart(beer);
+    beer.stock -= beer.quantity;
+    beer.quantity = 0;
   }
 }

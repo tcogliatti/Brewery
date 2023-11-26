@@ -1,1 +1,6 @@
-<p>cart works!</p>
+<h3>🛒 Carrito de compras</h3>
+<ul>
+    <li *ngFor="let beer of cartList$ | async">
+        🍻 {{beer.name}}: {{beer.quantity}}
+    </li>
+</ul>
