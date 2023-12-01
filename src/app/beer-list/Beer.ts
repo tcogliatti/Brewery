@@ -1,6 +1,8 @@
+import { TypeBeer } from "./type-beer";
+
 export interface Beer {
     name: string,
-    type: string,
+    type: TypeBeer,
     price: number,
     stock: number,
     image: string,

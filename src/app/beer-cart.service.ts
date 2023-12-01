@@ -20,8 +20,10 @@ export class BeerCartService {
     let item: Beer | undefined = this._carlist.find((cerve) => cerve.name == beer.name);
     if (!item)
       this._carlist.push({ ... beer }) // copia el objeto
-    else
-      item.quantity += beer.quantity;
+    else{
+      let quantity: number = +beer.quantity;
+      item.quantity += quantity;
+    }
 
     this.cartList.next(this._carlist); // emitir evento
   }

@@ -14,7 +14,7 @@
         <tr *ngFor="let beer of beers" [ngClass]="{'table-success': beer.clearance}">
             <td><img [src]="beer.image" [alt]="beer.name" class="img-thumbnail"></td>
             <td>{{beer.name}}</td>
-            <td>{{beer.type}}</td>
+            <td>{{beer.type.type}}</td>
             <td>
                 <span *ngIf="beer.clearance">{{(beer.price * sale) | currency}} <span
                         class="badge text-bg-primary fw-lighter">{{sale * 100}}% off</span> </span>

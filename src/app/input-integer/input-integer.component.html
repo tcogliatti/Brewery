@@ -1,6 +1,6 @@
-<div>
-    <button class="btn btn-primary btn-sm" (click)="downQuantity()">-</button>
-    <input type="text" class="buy-input text-lg-center border-0" [(ngModel)]="quantity"
+<div class="input-group mb-3">
+    <button class="btn btn-outline-secondary btn-primary text-light" type="button" (click)="downQuantity()">-</button>
+    <input type="text" class="text-lg-center form-control" [(ngModel)]="quantity"
         (keydown)="changeQuantity($event)">
-    <button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>
+    <button class="btn btn-outline-secondary btn-primary text-light" type="button" (click)="upQuantity()">+</button>
 </div>

@@ -8,6 +8,7 @@ import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
 import { BreweryBeersComponent } from './brewery-beers/brewery-beers.component';
 import { CartComponent } from './cart/cart.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
     BreweryAboutComponent,
     BreweryBeersComponent,
     CartComponent,
-    InputIntegerComponent
+    InputIntegerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
